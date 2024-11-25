@@ -49,6 +49,7 @@ export function PosthogProvider({ children }: PosthogProviderProps) {
   // https://react.dev/reference/react/useRef#avoiding-recreating-the-ref-contents
   // Note that in StrictMode, this will run twice.
   function getPosthogInstance() {
+    if (typeof window === 'undefined') return;
     if (posthogInstanceRef.current) return posthogInstanceRef.current;
     if (!window.ENV.POSTHOG_API_KEY) return undefined;
 
