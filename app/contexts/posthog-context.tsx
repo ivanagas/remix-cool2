@@ -54,6 +54,7 @@ export function PosthogProvider({ children }: PosthogProviderProps) {
 
     posthogInstanceRef.current = posthog.init(window.ENV.POSTHOG_API_KEY, {
       api_host: "https://us.i.posthog.com",
+      debug: true
     });
     return posthogInstanceRef.current;
   }
